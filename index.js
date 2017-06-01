@@ -3,7 +3,7 @@ import { DeviceEventEmitter, NativeModules } from 'react-native';
 
 const { RNReactNativeLocation } = NativeModules;
 
-export default {
+module.exports = {
 	getLocation: function () {
 		RNReactNativeLocation.getLocation();
 	},
