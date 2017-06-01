@@ -43,6 +43,16 @@ public class RNReactNativeLocationListener implements LocationListener{
         sendEvent("location_changed", params);
     }
 
+    @Override
+    public void onProviderDisabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
     private void sendEvent(String eventName, @Nullable WritableMap params) {
         this.reactContext
                 .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
