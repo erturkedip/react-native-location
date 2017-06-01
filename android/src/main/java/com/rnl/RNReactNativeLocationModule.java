@@ -90,8 +90,7 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
 
     protected synchronized void buildGoogleApiClient() {
         Log.i(TAG, "Building GoogleApiClient");
-        Activity activity = getCurrentActivity();
-        mGoogleApiClient = new GoogleApiClient.Builder(activity)
+        mGoogleApiClient = new GoogleApiClient.Builder(reactContext)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
