@@ -111,6 +111,7 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
     }
 
     protected void startLocationUpdates(final Promise promise) {
+        Log.i(TAG,"start");
         LocationServices.SettingsApi.checkLocationSettings(
                 mGoogleApiClient,
                 mLocationSettingsRequest
