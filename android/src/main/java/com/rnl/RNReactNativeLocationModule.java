@@ -241,7 +241,6 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
         }
     }
 
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             // Check for the integer request code originally supplied to startResolutionForResult().
