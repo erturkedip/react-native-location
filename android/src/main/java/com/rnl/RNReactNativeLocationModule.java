@@ -241,6 +241,10 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
         }
     }
 
+    public void onActivityResult(final Activity activity, final int requestCode, final int resultCode, final Intent data) {
+        onActivityResult(requestCode, resultCode, data);
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             // Check for the integer request code originally supplied to startResolutionForResult().
