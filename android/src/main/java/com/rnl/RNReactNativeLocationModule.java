@@ -90,7 +90,8 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
 
     protected synchronized void buildGoogleApiClient() {
         Log.i(TAG, "Building GoogleApiClient");
-        mGoogleApiClient = new GoogleApiClient.Builder(reactContext)
+        Activity activity = getCurrentActivity();
+        mGoogleApiClient = new GoogleApiClient.Builder(activity)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
@@ -139,7 +140,7 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
                         String errorMessage = "Location settings are inadequate, and cannot be " +
                                 "fixed here. Fix in Settings.";
                         Log.e(TAG, errorMessage);
-                        Toast.makeText(reactContext, errorMessage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getCurrentActivity(), errorMessage, Toast.LENGTH_LONG).show();
                         mRequestingLocationUpdates = false;
                 }
                 updateLocation(promise);
@@ -175,7 +176,7 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
                         String errorMessage = "Location settings are inadequate, and cannot be " +
                                 "fixed here. Fix in Settings.";
                         Log.e(TAG, errorMessage);
-                        Toast.makeText(reactContext, errorMessage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getReactApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                         mRequestingLocationUpdates = false;
                 }
                 emitLocation();
@@ -194,6 +195,7 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
     private void updateLocation(Promise promise) {
         WritableMap response = new WritableNativeMap();
         if (mCurrentLocation != null) {
+            Log.i(TAG, "Latitude: " + String.valueOf(mCurrentLocation.getLatitude()));
             response.putDouble("latitude", mCurrentLocation.getLatitude());
             response.putDouble("longitude", mCurrentLocation.getLongitude());
             promise.resolve(response);
