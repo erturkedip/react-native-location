@@ -12,6 +12,11 @@ export default {
 			'location_changed', callback
 		);
 	},
+	removeLocationListener: function (listener) {
+		DeviceEventEmitter.removeListener(
+			'location_changed', listener
+		);
+	},
 	BALANCED_POWER_KEY: RNReactNativeLocation.BALANCED_POWER_KEY,
 	HIGH_ACCURACY_KEY: RNReactNativeLocation.HIGH_ACCURACY_KEY,
 	LOW_POWER_KEY: RNReactNativeLocation.LOW_POWER_KEY,
