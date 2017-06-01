@@ -259,4 +259,6 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
                 break;
         }
     }
+
+    public void onNewIntent(Intent intent) { }
 }
