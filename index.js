@@ -7,6 +7,9 @@ export default {
 	startLocationPolling: function (interval: number, distance: double, priority: number) {
 		return RNReactNativeLocation.startLocationPolling(interval, distance, priority);
 	},
+	stopLocationPolling: function(){
+		return RNReactNativeLocation.stopLocationPolling();
+	},
 	addLocationListener: function(callback) {
 		return DeviceEventEmitter.addListener(
 			'location_changed', callback
