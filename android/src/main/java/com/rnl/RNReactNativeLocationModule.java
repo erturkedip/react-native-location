@@ -68,6 +68,8 @@ public class RNReactNativeLocationModule extends ReactContextBaseJavaModule impl
         mRequestingLocationUpdates = false;
         mLastUpdateTime = "";
 
+        reactContext.addActivityEventListener(this);
+
         buildGoogleApiClient();
         createLocationRequest();
         buildLocationSettingsRequest();
