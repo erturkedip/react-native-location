@@ -3,11 +3,11 @@
 
 ## Getting started
 
-`$ npm install react-native-react-native-location --save`
+`$ npm install --save git+https://github.com/erturkedip/react-native-location.git`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-react-native-location`
+`$ react-native link react-native-location`
 
 ### Manual installation
 
@@ -22,22 +22,22 @@
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNReactNativeLocationPackage;` to the imports at the top of the file
+  - Add `import com.rnl.RNReactNativeLocationPackage;` to the imports at the top of the file
   - Add `new RNReactNativeLocationPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-react-native-location'
-  	project(':react-native-react-native-location').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-react-native-location/android')
+  	include ':react-native-location'
+  	project(':react-native-location').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-location/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-react-native-location')
+      compile project(':react-native-location')
   	```
 
 #### Windows
 [Read it! :D](https://github.com/ReactWindows/react-native)
 
-1. In Visual Studio add the `RNReactNativeLocation.sln` in `node_modules/react-native-react-native-location/windows/RNReactNativeLocation.sln` folder to their solution, reference from their app.
+1. In Visual Studio add the `RNReactNativeLocation.sln` in `node_modules/react-native-location/windows/RNReactNativeLocation.sln` folder to their solution, reference from their app.
 2. Open up your `MainPage.cs` app
   - Add `using Com.Reactlibrary.RNReactNativeLocation;` to the usings at the top of the file
   - Add `new RNReactNativeLocationPackage()` to the `List<IReactPackage>` returned by the `Packages` method
@@ -45,7 +45,7 @@
 
 ## Usage
 ```javascript
-import RNReactNativeLocation from 'react-native-react-native-location';
+import RNReactNativeLocation from 'react-native-location';
 
 // TODO: What to do with the module?
 RNReactNativeLocation;
